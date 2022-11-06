@@ -1,6 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Recursive:wght@300&display=swap');
+
+
 .App {
   text-align: center;
+  color: #ff0000;
+  font-size: large;
+  font-style: italic;
+  font-weight: 100;
 }
+
+:root {
+  --bg-black-900: rgb(0, 51, 109);
+  --bg-black-100: rgb(21, 29, 74);
+  --bg-black-50: #fff71d;
+  --text-black-900: #ff0000;
+  --text-black-700: #000000;
+  --skin-color: #ffffff;
+}
+
+.search{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 20px 0;
+}
+
+.search input{
+  outline: 0;
+  width: 300px;
+  height: 25px;
+  padding: 0 o.5rem;
+  font-weight: bolder;
+
+}
+
+.search button{
+  outline: none;
+  height: 30px;
+  padding: 0 0.5;
+  border: 3px;
+}
+.Results{
+  text-align: left;
+  color: #ffffff;
+}
+
+.Reposresults{
+  text-align: left;
+  color: rgb(255, 255, 255);
+  font-style: oblique;
+  font-weight: bold;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -14,7 +66,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,3 +88,11 @@
     transform: rotate(360deg);
   }
 }
+
+.row {
+  text-align: left;
+  color: #ffffff;
+  font-style: oblique;
+  font-weight: bold;
+}
+
