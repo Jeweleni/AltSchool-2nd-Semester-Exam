@@ -52,6 +52,7 @@
   font-style: oblique;
   font-weight: bold;
   text-decoration: none;
+  column-gap: #ffff;
 }
 
 
@@ -95,5 +96,6 @@
   color: #ffffff;
   font-style: oblique;
   font-weight: bold;
+  text-decoration: none;
 }
 

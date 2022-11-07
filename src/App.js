@@ -12,7 +12,7 @@ class App extends Component {
       marginTop:'-350',
       backgroundSize:'cover',
       backgroundRepeat:'no-repeat',
-      opacity:'0.7',
+      opacity:'1',
       position: 'fixed',
     };
 
