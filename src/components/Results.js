@@ -7,7 +7,7 @@ const Results = (props) => {
 
 const listRepos = repos.map((item) => 
    ( <div className="Reposresults" key={item.id}> 
-        <a href= {item.html_url} target= '_blank'>
+        <a href= {item.html_url} target= 'blank'>
             {item.name}
         </a>
         </div>)
