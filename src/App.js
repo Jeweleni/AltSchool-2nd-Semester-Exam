@@ -1,36 +1,107 @@
-import React, {Component} from 'react';
-import Searchbar from './components/Searchbar';
+import React, { createContext, useState, useEffect } from "react";
+import Profile from "./components/Profile"
+import { Routes, Route } from "react-router-dom";
+import { ErrorBoundary } from "react-error-boundary";
+import { USER_PER_PAGE } from "./components/USER_PER_PAGE";
+import Repo from "./components/Repo";
+import Error404Page from "./Pages/Error404Page";
+import Github from "./Pages/Github";
+import axios from "axios";
+import ErrorFallback from "./components/ErrorBoundary";
+import { HelmetProvider } from "react-helmet-async";
+import ReactSwitch from "react-switch";
 
-import './App.css';
+export const ThemeContext = createContext("null");
 
-class App extends Component {
-  render() {
-    const myStyle={
-      backgroundImage: 'url(data:image/png;base64,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)',
-      height:'100vh',
-      width:'100%',
-      marginTop:'-350',
-      backgroundSize:'cover',
-      backgroundRepeat:'no-repeat',
-      opacity:'1',
-      position: 'fixed',
-    };
+function App() {
+  const [theme, setTheme] = useState("dark");
+  const [portfolio, setPortFolio] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [profiledata, setProfileData] = useState([]);
+  const [explode, setExplode] = useState(false);
 
-    return ( 
-    
-      <div className='App'>
-      
-        <h1>My GitHub Portfolio</h1>
-       
-
-
-        <div style={myStyle}>
-        <Searchbar/>
-        </div>
-   
-      </div>
+  useEffect(() => {
+    const repoPromise = axios.get(
+      "https://api.github.com/users/jeweleni/repos"
     );
+    const profilePromise = axios.get("https://api.github.com/users/jeweleni");
+    Promise.all([repoPromise, profilePromise])
+      .then(([repoResponse, profileResponse]) => {
+        setPortFolio(repoResponse.data);
+        setTotalPages(Math.ceil(repoResponse.data.length / USER_PER_PAGE));
+        setLoading(false);
+        setProfileData(profileResponse.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
+  return (
+    <HelmetProvider>
+      <title>Software Developer portfolio</title>
+      <meta name="description" content="Frontend Developer" />
+      <link rel="canonical" href="/portfolio" />
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <section style={{ height: "100%" }}>
+        <div className="switch">
+            <label>{theme=== "light" ? "Light Mode" : "Dark Mode"}</label>
+            <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+          </div>
+        
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              height: "100%",
+            }}
+            className="Home"
+            id={theme}
+          >
+            <ErrorBoundary
+              FallbackComponent={ErrorFallback}
+              onReset={() => setExplode(false)}
+              {...{ explode }}
+            >
+              <Profile
+                alt="fetched data"
+                imgSrc={profiledata.avatar_url}
+                name={profiledata.name}
+                bio={profiledata.bio}
+                location={profiledata.location}
+                followers={profiledata.followers}
+                following={profiledata.following}
+                public_repos={profiledata.public_repos}
+                html_url={profiledata.html_url}
+                twitter_username={profiledata.twitter_username}
+              />
+              
+              <div
+                style={{
+                  minHeight: "100%",
+                  flexGrow: "1",
+                  flexDirection: "column",
+                }}
+              >
+                <Routes>
+                  <Route path="/" element={<Github />} />
+                  <Route path="/portfolio" element={<Github />}>
+                    <Route path=":id" element={<Repo />} />
+                  </Route>
+
+                  <Route path="*" element={<Error404Page />} />
+                </Routes>
+              </div>
+            </ErrorBoundary>
+          </div>
+        </section>
+      </ThemeContext.Provider>
+    </HelmetProvider>
+  );
 }
 
-export default App;
+export default App
