@@ -8,14 +8,17 @@ function Pagination({
   page,
   setPage,
 }) {
+  // eslint-disable-next-line no-unused-vars
   const pages = [...Array(totalPages).keys()].map((num) => num + 1);
   // Previous button click...
+  // eslint-disable-next-line no-unused-vars
   const previousPage = (event) => {
     event.preventDefault();
     setPage(page - 1);
   };
 
   // Next button click...
+  // eslint-disable-next-line no-unused-vars
   const nextPage = (event) => {
     event.preventDefault();
     setPage(page + 1);

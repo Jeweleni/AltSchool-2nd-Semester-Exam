@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Pagination from "../components/Pagination";
 import { USER_PER_PAGE } from "../components/USER_PER_PAGE";
 import Users from "../components/Users";
-import { Outlet, useOutlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 function MyGithub() {
   const [portfolio, setPortFolio] = useState([]);
@@ -11,8 +11,6 @@ function MyGithub() {
   const [page, setPage] = useState(1);
   const [dynamicRoute, setDynamicRoute] = useState(false);
 
-  const Context = React.createContext({});
-  const outlet = useOutlet();
   function scrollView(z) {
     z.current.scrollIntoView();
   }

@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 import Profile from "./components/Profile"
 import { Routes, Route } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
-import { USER_PER_PAGE } from "./components/USER_PER_PAGE";
+// import { USER_PER_PAGE } from "./components/USER_PER_PAGE";
 import Repo from "./components/Repo";
 import Error404Page from "./Pages/Error404Page";
 import Github from "./Pages/Github";
@@ -15,10 +15,10 @@ export const ThemeContext = createContext("null");
 
 function App() {
   const [theme, setTheme] = useState("dark");
-  const [portfolio, setPortFolio] = useState([]);
-  const [totalPages, setTotalPages] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
+  // const [portfolio, setPortFolio] = useState([]);
+  // const [totalPages, setTotalPages] = useState(0);
+  // const [loading, setLoading] = useState(true);
+  // const [page, setPage] = useState(1);
   const [profiledata, setProfileData] = useState([]);
   const [explode, setExplode] = useState(false);
 
@@ -29,9 +29,9 @@ function App() {
     const profilePromise = axios.get("https://api.github.com/users/jeweleni");
     Promise.all([repoPromise, profilePromise])
       .then(([repoResponse, profileResponse]) => {
-        setPortFolio(repoResponse.data);
-        setTotalPages(Math.ceil(repoResponse.data.length / USER_PER_PAGE));
-        setLoading(false);
+        // setPortFolio(repoResponse.data);
+        // setTotalPages(Math.ceil(repoResponse.data.length / USER_PER_PAGE));
+        // setLoading(false);
         setProfileData(profileResponse.data);
       })
       .catch((error) => {

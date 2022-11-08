@@ -6,11 +6,12 @@ function MyRepo(props) {
   const [repo, setRepo] = useState([]);
   
 
-  const [portfolio, setPortFolio, scrollView, dynamicRoute] =
+  const [portfolio, scrollView, dynamicRoute] =
     useOutletContext();
   const ref = useRef();
 
   useEffect(() => {
+    // eslint-disable-next-line array-callback-return
     portfolio.map((item) => {
       if (item.id === Number(id)) {
         setRepo(item);
@@ -19,7 +20,7 @@ function MyRepo(props) {
     if (dynamicRoute) {
       scrollView(ref);
     }
-  }, [id]);
+  }, [dynamicRoute, id, portfolio, scrollView]);
 
   return (
     <div
@@ -34,9 +35,10 @@ function MyRepo(props) {
         borderRadius: "10px",
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "lightslategrey",
+        backgroundColor: "lightblue",
         justifyContent: "center",
         alignItems: "center",
+        color: '#ad1457',
       }}
     >
       <h4 alt="title and details of repositories">{repo.name}</h4>
