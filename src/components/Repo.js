@@ -3,7 +3,7 @@ import { useOutletContext, useParams } from "react-router-dom";
 
 function MyRepo(props) {
   const { id } = useParams();
-  const [repo, setRepo] = useState([]);
+  const [repo, setRepo] = useState("testing");
   
 
   const [portfolio, scrollView, dynamicRoute] =
@@ -11,12 +11,11 @@ function MyRepo(props) {
   const ref = useRef();
 
   useEffect(() => {
-    // eslint-disable-next-line array-callback-return
-    portfolio.map((item) => {
-      if (item.id === Number(id)) {
-        setRepo(item);
-      }
-    });
+    
+    const tempRepo = portfolio.find((item) => item.id === Number(id));
+    setRepo(tempRepo)
+   
+
     if (dynamicRoute) {
       scrollView(ref);
     }
@@ -27,26 +26,27 @@ function MyRepo(props) {
       id="outlet"
       ref={ref}
       style={{
-        // marginTop: "50px",
+        marginTop: "50px",
         width: "100%",
         height: "300px",
         padding: "10px",
-        border: "4px solid black",
-        borderRadius: "10px",
+        border: "2px solid black",
+        borderRadius: "5px",
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "lightblue",
+        backgroundColor: "#fffff",
         justifyContent: "center",
         alignItems: "center",
-        color: '#ad1457',
+        textAlign:"center",
+       
       }}
     >
-      <h4 alt="title and details of repositories">{repo.name}</h4>
-      <p alt="more details of repos">{repo.description}</p>
-      <p alt="more details of repos">{repo.language}</p>
-      <p alt="more details of repos">Forks Count: {repo.forks_count}</p>
+      <h4 alt="title and details of repositories">{repo?.name}</h4>
+      <p alt="more details of repos">{repo?.description}</p>
+      <p alt="more details of repos">{repo?.language}</p>
+      <p alt="more details of repos">Forks Count: {repo?.forks_count}</p>
 
-      <a href={repo.html_url}>
+      <a href={repo?.html_url}>
         <button className="buttons">CLICK FOR MORE </button>
       </a>
     </div>
@@ -54,5 +54,3 @@ function MyRepo(props) {
 }
 
 export default MyRepo;
-
-// () => scollToRef.current.scrollIntoView()

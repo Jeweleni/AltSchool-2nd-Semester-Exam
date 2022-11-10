@@ -1,8 +1,9 @@
 import React, { createContext, useState, useEffect } from "react";
-import Profile from "./components/Profile"
+import Profile from "./Pages/Profile"
+
 import { Routes, Route } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
-// import { USER_PER_PAGE } from "./components/USER_PER_PAGE";
+// import {USER_PER_PAGE} from "./components/USER_PER_PAGE"
 import Repo from "./components/Repo";
 import Error404Page from "./Pages/Error404Page";
 import Github from "./Pages/Github";
@@ -10,13 +11,16 @@ import axios from "axios";
 import ErrorFallback from "./components/ErrorBoundary";
 import { HelmetProvider } from "react-helmet-async";
 import ReactSwitch from "react-switch";
+// import Users from "./components/Users";
+
+
 
 export const ThemeContext = createContext("null");
 
 function App() {
   const [theme, setTheme] = useState("dark");
   // const [portfolio, setPortFolio] = useState([]);
-  // const [totalPages, setTotalPages] = useState(0);
+  // const [totalPages, setTotalPages] = useState(7);
   // const [loading, setLoading] = useState(true);
   // const [page, setPage] = useState(1);
   const [profiledata, setProfileData] = useState([]);
@@ -43,9 +47,9 @@ function App() {
   };
   return (
     <HelmetProvider>
-      <title>Software Developer portfolio</title>
+      <title>Developer Portfolio</title>
       <meta name="description" content="Frontend Developer" />
-      <link rel="canonical" href="/portfolio" />
+      <link rel="canonical" href="/Portfolio" />
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <section style={{ height: "100%" }}>
         <div className="switch">
@@ -57,7 +61,8 @@ function App() {
             style={{
               display: "flex",
               justifyContent: "space-between",
-              height: "100%",
+              height: "100vh",
+              
             }}
             className="Home"
             id={theme}
@@ -78,6 +83,7 @@ function App() {
                 public_repos={profiledata.public_repos}
                 html_url={profiledata.html_url}
                 twitter_username={profiledata.twitter_username}
+                medium_username={profiledata.medium_username}
               />
               
               <div

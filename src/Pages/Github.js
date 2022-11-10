@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import Pagination from "../components/Pagination";
 import { USER_PER_PAGE } from "../components/USER_PER_PAGE";
 import Users from "../components/Users";
-import { Outlet } from "react-router-dom";
+// import { Outlet, useOutlet } from "react-router-dom";
 
-function MyGithub() {
+function Github() {
   const [portfolio, setPortFolio] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [dynamicRoute, setDynamicRoute] = useState(false);
 
+  // const context = React.createContext({});
+  // const outlet = useOutlet();
+  console.log("\n\nPORTFOLIO ",portfolio)
   function scrollView(z) {
     z.current.scrollIntoView();
   }
@@ -42,9 +45,14 @@ function MyGithub() {
 
   return (
     <div
-      style={{ width: "100", border: "1px soild black", position: "relative" }}
+      style={{ width: "120", 
+      border: "1px soild black", 
+      position: "relative", 
+      color: "rgb(217, 0, 0)",
+      textAlign: "right",
+     }}
     >
-      <h1 alt="repository list">My Github Repositories</h1>
+      <h2 alt="repository list">Github Repositories</h2>
       <Users
         users={portfolio}
         page={page}
@@ -59,9 +67,9 @@ function MyGithub() {
         setPage={setPage}
         page={page}
       />
-      <Outlet context={[portfolio, setPortFolio, scrollView, dynamicRoute]} />
+      {/* <Outlet context={[portfolio, setPortFolio, scrollView, dynamicRoute]} /> */}
     </div>
   );
 }
 
-export default MyGithub;
+export default Github;

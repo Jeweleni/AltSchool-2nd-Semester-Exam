@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(63, 110, 19);
+  background-color: rgb(0, 0, 0);
  
 }
  
@@ -15,10 +15,10 @@ body {
   width: 250px;
 }
 #light {
-  background-color: white;
+  background-color: rebeccapurple;
 }
 #dark {
-  background-color: rgb(10, 17, 24);
+  background-color: rgb(0, 0, 0);
 }
 #profile #avatar {
   height: 195px;
@@ -40,32 +40,46 @@ body {
   justify-content: center;
   align-items: center;
   height: 95%;
-  
+  width: 120%;
+
 }
 h1 {
   font-size: 2rem;
   text-align: center;
-  margin: 0 auto;
+ 
+  margin-bottom: 20;
   padding: 1rem;
   font-style: italic;
-  color: aquamarine;
+  color: rgb(164, 168, 180);
 
   box-shadow: rgb(100, 98, 98);
 }
 
+h2{
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 70;
+  padding: 1rem;
+  font-style: normal;
+  color: rgb(255, 255, 255);
+}
+
+
 article {
-  margin: 0 auto;
+  margin: auto;
   max-width: 800px;
   padding: 0 20px;
   text-align: center;
-  color: rgb(63, 110, 19);
+  color: rebeccapurple;
+  font-size: small;
+  margin-top: 15px;
 }
 .buttons {
   justify-content: space-around;
   margin: 5px;
   cursor: pointer;
   background-color: rgb(61, 59, 59);
-  color: rgb(0, 196, 0);
+  color: rgb(255, 255, 255);
   border-radius: 5px;
   font-style: bolder;
   font-size: 15px;
@@ -76,23 +90,31 @@ a .buttons {
   border-radius: 5px;
   text-decoration: none;
   background-color: rgb(61, 59, 59);
-  color:rgb(0, 196, 0);
+  color:rgb(0, 119, 163);
 }
 button {
   border: none;
   background-color: rgb(61, 59, 59);
   cursor: pointer;
   font-size: 1rem;
-  color: rgb(0, 196, 0);
+  color: rgb(181, 131, 131);
   font-weight: 20px;
   border-radius: 5px;
 
 }
+
+.bio {
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+}
 #user-data {
   height: 90%;
   width: 285px;
-  margin: 10px;
-  font-size: 19px;
+  margin: 20px;
+  font-size: 9px;
+  text-align: right;
+  position: relative;
+
   
 }
 #paginate {
@@ -115,25 +137,26 @@ a {
   justify-content: space-around;
   margin: 5px;
   background-color: rgb(61, 59, 59);
-  color: rgb(0, 196, 0);
+  color: rgb(0, 187, 193);
   cursor: pointer;
   border-radius: 5px;
   /* box-shadow: black; */
 }
 .switch {
   display: flex;
-  justify-content:left ;
-  align-items: left;
+  justify-content: right;
+  align-items: right;
   cursor: pointer;
 
   font-size: 10px;
 }
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 0px) {
   .Home {
     flex-direction: column;
     width: screen;
     border: 1px solid black;
-    min-height: 800px;
+    min-height: 700px;
+
   }
   #profile {
     height: 50vh;
@@ -157,15 +180,14 @@ a {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    color: papayawhip;
 
     flex-wrap: wrap;
 
-    justify-content: space-between;
+    justify-content: right;
   }
   #user-data {
     height: 180px;
-    font-size: 7px;
+    font-size: 20px;
   }
   #paginate {
     left: 100px;
@@ -174,4 +196,9 @@ a {
   #outlet {
     margin-top: 160px;
   }
+}
+.alert {
+  position: relative;
+  font-size: 20px;
+  color: brown;
 }
