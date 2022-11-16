@@ -1,23 +1,26 @@
 import React, { createContext, useState, useEffect } from "react";
 import Profile from "./Pages/Profile"
-
 import { Routes, Route } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 // import {USER_PER_PAGE} from "./components/USER_PER_PAGE"
 import Repo from "./components/Repo";
 import Error404Page from "./Pages/Error404Page";
 import Github from "./Pages/Github";
+// import Navbar from "./components/Navbar";
 import axios from "axios";
 import ErrorFallback from "./components/ErrorBoundary";
 import { HelmetProvider } from "react-helmet-async";
 import ReactSwitch from "react-switch";
-// import Users from "./components/Users";
+// import Hero from "./components/Hero";
+
+
 
 
 
 export const ThemeContext = createContext("null");
 
 function App() {
+  
   const [theme, setTheme] = useState("dark");
   // const [portfolio, setPortFolio] = useState([]);
   // const [totalPages, setTotalPages] = useState(7);
@@ -45,6 +48,7 @@ function App() {
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
+  
   return (
     <HelmetProvider>
       <title>Developer Portfolio</title>
@@ -64,7 +68,7 @@ function App() {
               height: "100vh",
               
             }}
-            className="Home"
+            className="Hero"
             id={theme}
           >
             <ErrorBoundary
@@ -72,6 +76,8 @@ function App() {
               onReset={() => setExplode(false)}
               {...{ explode }}
             >
+
+              
               <Profile
                 alt="fetched data"
                 imgSrc={profiledata.avatar_url}
@@ -93,6 +99,7 @@ function App() {
                   flexDirection: "column",
                 }}
               >
+             
                 <Routes>
                   <Route path="/" element={<Github />} />
                   <Route path="/portfolio" element={<Github />}>

@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(49, 46, 46);
  
 }
  
@@ -47,7 +47,7 @@ h1 {
   font-size: 2rem;
   text-align: center;
  
-  margin-bottom: 20;
+
   padding: 1rem;
   font-style: italic;
   color: rgb(164, 168, 180);
@@ -58,7 +58,7 @@ h1 {
 h2{
   font-size: 1.5rem;
   text-align: center;
-  margin-bottom: 70;
+  
   padding: 1rem;
   font-style: normal;
   color: rgb(255, 255, 255);
@@ -92,7 +92,7 @@ a .buttons {
   background-color: rgb(61, 59, 59);
   color:rgb(0, 119, 163);
 }
-button {
+.button {
   border: none;
   background-color: rgb(61, 59, 59);
   cursor: pointer;
@@ -141,6 +141,18 @@ a {
   cursor: pointer;
   border-radius: 5px;
   /* box-shadow: black; */
+  
+}
+.medium{
+  padding: 5px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
+  background-color: rgb(61, 59, 59);
+  color: rgb(0, 187, 193);
+  cursor: pointer;
+  border-radius: 5px;
 }
 .switch {
   display: flex;
@@ -154,8 +166,9 @@ a {
   .Home {
     flex-direction: column;
     width: screen;
-    border: 1px solid black;
+    border: 1px solid rgb(83, 73, 73);
     min-height: 700px;
+    color: #555;
 
   }
   #profile {
@@ -201,4 +214,56 @@ a {
   position: relative;
   font-size: 20px;
   color: brown;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: o;
+}
+
+.nav{
+  color:aliceblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.site-tittle{
+  font-size: 2rem;
+  position: relative;
+  text-align: center;
+  font: italic;
+  
+
+}
+.nav ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: 1rem;
+}
+
+.nav a{
+  color: aliceblue;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: left;
+  padding: .25rem;
+
+}
+.nav li.active{
+  background-color: #555;
+}
+
+.nav li:hover{
+  background-color: rgb(0, 57, 148);
+}
+.nav li.active{
+  background-color: #555;
 }

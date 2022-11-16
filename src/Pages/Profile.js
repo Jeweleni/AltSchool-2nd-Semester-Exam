@@ -1,5 +1,7 @@
 import React from "react";
 import { HelmetProvider } from "react-helmet-async";
+import {FaGithub, FaMedium, FaTwitter} from "react-icons/fa"
+
 
 function Profile({
   imgSrc = "./placeholderimage.jpeg",
@@ -49,17 +51,17 @@ function Profile({
         </div>
 
         <a href="https://twitter.com/jeweleni_diva/">
-          <button className="btns"><i className="fa-brands fa-twitter"></i>{twitter_username}</button>
+          <button className="btns"><FaTwitter/> Twitter<i className="fa-brands fa-twitter"></i></button>
         </a>
 
         <a href="https://github.com/jeweleni">
-          <button className="btns"><i className="fa-brands fa-github"></i>{html_url}</button>
+          <button className="btns"><FaGithub/> GitHub<i className="fa-brands fa-github"></i></button>
         </a>
       </div>
 
       <a href=" https://medium.com/@EMJCREATES">
         
-        <button className="medium"><i class="fa-brands fa-medium"></i></button>
+        <button className="medium"><FaMedium/> Medium<i className="fa-brands fa-medium"></i></button>
       </a>
     </div>
     </HelmetProvider>

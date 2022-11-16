@@ -12,7 +12,7 @@ function Github() {
   const [dynamicRoute, setDynamicRoute] = useState(false);
 
   // const context = React.createContext({});
-  // const outlet = useOutlet();
+  // const Outlet = useOutlet("");
   console.log("\n\nPORTFOLIO ",portfolio)
   function scrollView(z) {
     z.current.scrollIntoView();
@@ -67,7 +67,7 @@ function Github() {
         setPage={setPage}
         page={page}
       />
-      {/* <Outlet context={[portfolio, setPortFolio, scrollView, dynamicRoute]} /> */}
+      {/* <Outlet context={["portfolio, setPortFolio, scrollView, dynamicRoute"]} /> */}
     </div>
   );
 }

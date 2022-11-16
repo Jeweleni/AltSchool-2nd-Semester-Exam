@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 
-function MyRepo(props) {
+function Repo(props) {
   const { id } = useParams();
   const [repo, setRepo] = useState("testing");
   
@@ -29,7 +29,7 @@ function MyRepo(props) {
         marginTop: "50px",
         width: "100%",
         height: "300px",
-        padding: "10px",
+        padding: "40px",
         border: "2px solid black",
         borderRadius: "5px",
         display: "flex",
@@ -53,4 +53,4 @@ function MyRepo(props) {
   );
 }
 
-export default MyRepo;
+export default Repo;
