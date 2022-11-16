@@ -16,10 +16,10 @@ const Users = ({ users, page, chooseRepo, scrollView, dynamicRoute }) => {
     >
       {selectedUsers.map((user) => (
         <User
-          id={user.id}
-          name={user.name}
-          html_url={user.html_url}
-          description={user.description}
+          id={user?.id}
+          name={user?.name}
+          html_url={user?.html_url}
+          description={user?.description}
           chooseRepo={chooseRepo}
           
         />

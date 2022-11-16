@@ -21,7 +21,10 @@ function Repo(props) {
     }
   }, [dynamicRoute, id, portfolio, scrollView]);
 
+
+  console.log("rubbish")
   return (
+    
     <div
       id="outlet"
       ref={ref}
@@ -46,7 +49,9 @@ function Repo(props) {
       <p alt="more details of repos">{repo?.language}</p>
       <p alt="more details of repos">Forks Count: {repo?.forks_count}</p>
 
+      
       <a href={repo?.html_url}>
+        
         <button className="buttons">CLICK FOR MORE </button>
       </a>
     </div>

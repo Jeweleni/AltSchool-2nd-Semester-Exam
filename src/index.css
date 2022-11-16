@@ -12,7 +12,7 @@ body {
 #profile {
   padding: 5px;
   height: 100vh;
-  width: 250px;
+  width: 350px;
 }
 #light {
   background-color: rebeccapurple;
@@ -45,12 +45,10 @@ body {
 }
 h1 {
   font-size: 2rem;
-  text-align: center;
- 
-
+  text-align: left;
   padding: 1rem;
   font-style: italic;
-  color: rgb(164, 168, 180);
+  color: rgb(18, 70, 134);
 
   box-shadow: rgb(100, 98, 98);
 }
@@ -189,15 +187,7 @@ a {
     justify-content: space-around;
     align-items: center;
   }
-  #data-card {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-
-    flex-wrap: wrap;
-
-    justify-content: right;
-  }
+ 
   #user-data {
     height: 180px;
     font-size: 20px;
